@@ -1,0 +1,13 @@
+{
+    "background_image": "Sprites/background_entry.jpg",
+    "click_sound_path": "Sounds/mouse_click.mp3",
+    "type_sound_path": "Sounds/type_letter.mp3",
+    "screen_width" :800,
+    "screen_height" : 600,
+    "title_height" :30,
+    "title_width" : 300,
+    "connect_btn_height" :50,
+    "connect_btn_width" : 200,
+    "connect_btn_height_pos" :360,
+    "connect_btn_width_pos" : 300
+}

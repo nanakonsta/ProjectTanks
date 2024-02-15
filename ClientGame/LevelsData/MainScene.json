@@ -1,0 +1,26 @@
+{
+    "background_image": "Sprites/background_entry.jpg",
+    "player_position": [100, 300],
+    "enemies": [
+        {
+            "type": "enemy_type1",
+            "position": [200, 400]
+        },
+        {
+            "type": "enemy_type2",
+            "position": [300, 450]
+        }
+    ],
+    "platforms": [
+        {
+            "position": [0, 550],
+            "width": 800,
+            "height": 50
+        },
+        {
+            "position": [100, 400],
+            "width": 200,
+            "height": 20
+        }
+    ]
+}
