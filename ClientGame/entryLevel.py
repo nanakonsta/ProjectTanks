@@ -16,7 +16,7 @@ class EntryLevel(Level):
         # Additional initialization for the derived class
         
         self.screen = pygame.display.set_mode((self.levelData["screen_width"], self.levelData["screen_height"]), pygame.RESIZABLE)        # Create the window
-        pygame.display.set_caption("Aeroplane assault")
+        pygame.display.set_caption("Tanks!")
         #fonto
         self.background_image = pygame.image.load(self.levelData["background_image"]).convert()
 
@@ -32,7 +32,7 @@ class EntryLevel(Level):
         
         # Set up font for title
         self.font_title = pygame.font.SysFont("timesnewroman", 50)  
-        self.text_surface_title = self.font_title.render("Aeroplane Assault", True, (228, 228, 228))  
+        self.text_surface_title = self.font_title.render("Tanks!", True, (228, 228, 228))  
         
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
