@@ -1,4 +1,4 @@
-#creates the lobby window
+#creates the lobby window image
 import pygamedisplay
 import sys
 from level import Level

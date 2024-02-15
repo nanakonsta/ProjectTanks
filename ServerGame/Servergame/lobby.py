@@ -1,3 +1,4 @@
+#syncs the choices made in the lobby window
 import json
 class Lobby:
         #diaxeirizetai to json arxeio to opoio sunxronizei data se server kai client
