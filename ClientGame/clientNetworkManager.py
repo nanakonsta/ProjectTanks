@@ -5,6 +5,7 @@
 # It also provides methods for sending and receiving JSON data.
 
 # Import necessary modules
+
 import socket
 import json
 # gia na pairnei kai an dinei data mesa sto diadiktei kai n sundetai 
@@ -12,7 +13,7 @@ import json
 # 
 class ClientNetworkManager:
     def __init__(self):
-        # Initialize the client socket and connection details
+         # Initialize the client socket and connection details
         # Initialize the client network manager with socket, host, and port
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.host = ""  
@@ -33,8 +34,7 @@ class ClientNetworkManager:
             return False
 
     def setHost(self, _host):
-        
-        # Set the host address
+         # Set the host address
         self.host = _host
         self.addr = (self.host, self.port)
 

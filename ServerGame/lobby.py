@@ -1,5 +1,6 @@
 import json
-class Lobby: #diaxeirizetai to json arxeio to opoio sunxronizei data se server kai client
+class Lobby:
+        #diaxeirizetai to json arxeio to opoio sunxronizei data se server kai client
     def __init__(self):
 
         self.lobby_data = {

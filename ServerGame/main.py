@@ -22,8 +22,8 @@ def start_server(server_manager, exit_event):
             pass
 
 if __name__ == "__main__":
-    serverGameRunnerObj = ServerGameRunner() 
-    serverManagerObj = ServerManager(serverGameRunnerObj) # upeuthinos gia na parei kai na dwsei dedomena sto paikth
+    serverGameRunnerObj = ServerGameRunner()
+    serverManagerObj = ServerManager(serverGameRunnerObj)
     print('Server running: ' + serverManagerObj.get_public_ip())
     
     server_thread_obj = threading.Thread(target=start_server, args=(serverManagerObj, exit_event))

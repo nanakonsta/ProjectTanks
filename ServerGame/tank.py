@@ -24,7 +24,7 @@ class Tank(pygame.sprite.Sprite):
         for tank_component in self.tank_components:
             tank_component.drawTank(screen)
 
-class TankBase(Tank):#to h vash tou tank pws kounietai kai pws purovolaei
+class TankBase(Tank): #to h vash tou tank pws kounietai kai pws purovolaei
     def __init__(self, xPos, yPos, spritePath, moveSpeed, rotateSpeed, tankType, stopDistance, health, gameManager):
         super().__init__(xPos, yPos)
         image_pre_rotated = pygame.image.load(spritePath)
@@ -115,7 +115,7 @@ class TankBase(Tank):#to h vash tou tank pws kounietai kai pws purovolaei
     
 
         
-class TankTurret(Tank): #to kanoni pws kounietai kai pws purovolontai
+class TankTurret(Tank):  #to kanoni pws kounietai kai pws purovolontai
     def __init__(self, tank_base, spritePath, fireRate = 200):
         super().__init__(tank_base.x_pos, tank_base.y_pos)
         image_pre_rotated_turret = pygame.image.load(spritePath)
@@ -175,7 +175,7 @@ class TankTurret(Tank): #to kanoni pws kounietai kai pws purovolontai
 
     
     
-class Bullet(Tank):  #h sfaira
+class Bullet(Tank):#h sfaira
     def __init__(self, x, y, angle, spritePath, speed, turret):
         super().__init__(x, y)
         self.speed = speed
@@ -194,7 +194,7 @@ class Bullet(Tank):  #h sfaira
         screen.blit(pygame.transform.rotate(self.sprite_surface_bullet, -self.angle), self.rect.topleft)
 
 
-    def collisionDetection(self): #sfaires
+    def collisionDetection(self):  #sfaires
         if self.turret.tank_base.tankType == TankEnum.E1 or self.turret.tank_base.tankType == TankEnum.E2:
             if self.rect.colliderect(self.turret.tank_base.game_manager.castle_rect):
                 if self.turret.tank_base.dead == False:
