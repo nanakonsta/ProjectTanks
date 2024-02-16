@@ -16,7 +16,7 @@ class EntryLevel(Level):
         # Additional initialization for the derived class
         
         self.screen = pygame.display.set_mode((self.levelData["screen_width"], self.levelData["screen_height"]), pygame.RESIZABLE)        # Create the window
-        pygame.display.set_caption("Aeroplane assault")
+        pygame.display.set_caption("Tanks!")
         self.background_image = pygame.image.load("Sprites/islandsmall.png").convert()
        
        # Additional initialization for the derived class
