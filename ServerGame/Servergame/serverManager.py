@@ -13,7 +13,7 @@ from gameMode import GameMode
 
 class ServerManager:
 
-
+    #Initializations
     def __init__(self, server_game_runner):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
@@ -62,7 +62,7 @@ class ServerManager:
             print("Connection Closed")
             conn.close()
         
-        
+    (handles different types of data and takes corresponding actions)    
     def receiveDataAndTakeAction(self, json_data):
         data_type = list(json_data.keys())[0]
         
