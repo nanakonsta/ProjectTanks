@@ -1,4 +1,6 @@
 #half implemented
+#arxikos skopos htan na prostethei gia to mode opou ta tanks einai sympaiktes
+#kai prostateyoun mazi to kastro apo exthrous
 class GameManager:
 
     def __init__(self, castleRect):
