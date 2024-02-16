@@ -14,13 +14,12 @@ class SignInLevel(Level):
         # Additional initialization for the derived class
         self.clientGameManager = None
         self.screen = pygame.display.set_mode((self.levelData["screen_width"], self.levelData["screen_height"]),pygame.RESIZABLE)        # Create the window
-        pygame.display.set_caption("Tanks!")
-        self.background_image = pygame.image.load(self.levelData["background_image"]).convert()
-         #path tha mpei url arxeiou eikonas fontou pou thelw na valw gia fonto arxikh othoni
+        pygame.display.set_caption("Aeroplane assault")
+        self.background_image = pygame.image.load("Sprites/island.png").convert() 
+        #path tha mpei url arxeiou eikonas fontou pou thelw na valw gia fonto arxikh othoni
                 
         self.font_error = pygame.font.SysFont("timesnewroman", 32)  
         self.error_text = self.font_error.render("", True, (255, 50, 50))
-        
         self.mouse_position_x = 0
         self.mouse_position_y = 0
         #Button
@@ -31,9 +30,8 @@ class SignInLevel(Level):
         self.input_text_password = ""
         # Set up font for title
         self.font_title = pygame.font.SysFont("timesnewroman", 50)  # Use Times New Roman font, size 72
-        self.text_surface_title = self.font_title.render("Tanks", True, (228, 228, 228))  
+        self.text_surface_title = self.font_title.render("Aeroplane Assault", True, (228, 228, 228))  
         #c:\Users\user\Desktop\island.jpg
-          
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
         self.button_color = (50, 150, 255)  # Light blue
@@ -65,7 +63,6 @@ class SignInLevel(Level):
         
         self.username_select_button = pygame.Rect(500, 200,self.sign_in_button_width, self.sign_in_button_height -20)
         self.password_select_button = pygame.Rect(500 , 250, self.sign_in_button_width, self.sign_in_button_height -20)
-        
         #Sounds
         self.click_sound = pygame.mixer.Sound(self.levelData["click_sound_path"]) 
         self.type_sound = pygame.mixer.Sound(self.levelData["type_sound_path"])  
@@ -212,8 +209,8 @@ class SignUpLevel(Level):
         # Additional initialization for the derived class
         self.clientGameManager = None
         self.screen = pygame.display.set_mode((self.levelData["screen_width"], self.levelData["screen_height"]), pygame.RESIZABLE)        # Create the window
-        pygame.display.set_caption("Tanks!")
-        self.background_image = pygame.image.load(self.levelData["background_image"]).convert()
+        pygame.display.set_caption("Aeroplane assault")
+        self.background_image = pygame.image.load("Sprites/island.png").convert()
                 
         self.font_error = pygame.font.SysFont("timesnewroman", 32)  
         self.error_text = self.font_error.render("", True, (255, 50, 50))
@@ -228,7 +225,7 @@ class SignUpLevel(Level):
         self.input_text_password = ""
         # Set up font for title
         self.font_title = pygame.font.SysFont("timesnewroman", 50)  # Use Times New Roman font, size 72
-        self.text_surface_title = self.font_title.render("Tanks!", True, (228, 228, 228))  
+        self.text_surface_title = self.font_title.render("Aeroplane Assault", True, (228, 228, 228))  
           
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
@@ -261,7 +258,6 @@ class SignUpLevel(Level):
         
         self.username_select_button = pygame.Rect(500, 200,self.sign_in_button_width, self.sign_in_button_height -20)
         self.password_select_button = pygame.Rect(500 , 250, self.sign_in_button_width, self.sign_in_button_height -20)
-       
         #Sounds
         self.click_sound = pygame.mixer.Sound(self.levelData["click_sound_path"]) 
         self.type_sound = pygame.mixer.Sound(self.levelData["type_sound_path"])  

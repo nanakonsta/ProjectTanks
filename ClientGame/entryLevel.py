@@ -1,4 +1,4 @@
-
+# Import necessary modules
 import pygame
 import sys
 from level import Level
@@ -10,38 +10,38 @@ import json
 class EntryLevel(Level):
     
     def __init__(self, levelData, screen):
-          # Initialize the entry level with specific properties
+         # Initialize the entry level with specific properties
         super().__init__(levelData, screen)
 
         # Additional initialization for the derived class
         
         self.screen = pygame.display.set_mode((self.levelData["screen_width"], self.levelData["screen_height"]), pygame.RESIZABLE)        # Create the window
-        pygame.display.set_caption("Tanks!")
-        #fonto
-        self.background_image = pygame.image.load(self.levelData["background_image"]).convert()
-
-         # Additional initialization for the derived class
+        pygame.display.set_caption("Aeroplane assault")
+        self.background_image = pygame.image.load("Sprites/islandsmall.png").convert()
+       
+       # Additional initialization for the derived class
         # Initialize UI elements and properties
         self.mouse_position_x = 0
         self.mouse_position_y = 0
+        
         #Button
-          # Set up fonts and UI elements
+        # Set up fonts and UI elements
         self.font = pygame.font.Font(None, 36)
         self.input_font = pygame.font.Font(None, 36)
         self.input_text = "localhost"
         
         # Set up font for title
         self.font_title = pygame.font.SysFont("timesnewroman", 50)  
-        self.text_surface_title = self.font_title.render("Tanks!", True, (228, 228, 228))  
+        self.text_surface_title = self.font_title.render("Tanks", True, (228, 228, 228))  
         
+        #button colours
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
         self.button_color = (50, 150, 255)  # Light blue
-
         self.button_color_hovered = (34, 128, 235)  # darker blue
-      
-        # Set up fonts and UI elements
-        #self.font = pygame.font.Font(None, 36)
+        
+         # Set up fonts and UI elements
+        self.font = pygame.font.Font(None, 36)
         self.button_font = pygame.font.Font(None, 48)
         self.button_font_select_button_fonts = pygame.font.Font(None, 32)
 
@@ -53,7 +53,7 @@ class EntryLevel(Level):
 
         self.connect_button = pygame.Rect(self.button_x, self.button_y, self.button_width, self.button_height)
         
-        # Load and initialize sounds
+       # Load and initialize sounds
         self.click_sound = pygame.mixer.Sound(self.levelData["click_sound_path"]) 
         self.type_sound = pygame.mixer.Sound(self.levelData["type_sound_path"])  
 
@@ -62,8 +62,7 @@ class EntryLevel(Level):
         
     def update(self, events):
         # Handle user input and update UI elements
-        # Handle events such as quitting, key presses, mouse clicks, etc
-               
+            # Handle events such as quitting, key presses, mouse clicks, etc
         for event in events:
             if event.type == pygame.QUIT:
                  pygame.quit()
@@ -81,9 +80,9 @@ class EntryLevel(Level):
                      
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 # Handle mouse button down events
-                # Handle mouse clicks for connecting to the server
+                 # Handle mouse clicks for connecting to the server
                 if event.button == 1 and self.connect_button.collidepoint(event.pos):  # Left mouse button
-                     # Handle the action when the connect button is clicked
+                    # Handle the action when the connect button is clicked
                     self.clientGameManager.getNetworkManager().setHost(self.input_text)
                     result = self.clientGameManager.getNetworkManager().connect()   
                     if result == True:                                       
@@ -99,7 +98,6 @@ class EntryLevel(Level):
             if event.type == pygame.MOUSEMOTION:  
                 # Handle mouse motion events       
                 self.mouse_position_x, self.mouse_position_y = event.pos
-
     # Draw UI elements on the screen # Other update code
         self.screen.blit(self.background_image, (0, 0))
         pygame.draw.rect(self.screen, self.button_color, self.connect_button)
@@ -125,6 +123,6 @@ class EntryLevel(Level):
         self.screen.blit(self.input_render, (150, 260))
 
     def draw(self):
-        # Update the display # Draw the UI elements on the screen
+         # Update the display # Draw the UI elements on the screen
         pygame.display.flip()
 

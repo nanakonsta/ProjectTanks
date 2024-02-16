@@ -1,3 +1,6 @@
+#
+# 
+
 import pygame
 import sys
 from level import Level
@@ -5,16 +8,14 @@ from player import Player
 from tankEnum import TankEnum
 import json
 from tankFactory import *
-
 # h kentrikh pista
 class GameLevel(Level):
     
     def __init__(self, levelData, screen):
         super().__init__(levelData, screen)
         self.clientGameManager = None
-        self.width, self.height = (1200, 800)
+        self.width, self.height = (800, 400)
         self.screen = pygame.display.set_mode((self.width, self.height))
-
     #initialization code
         self.background_image = pygame.image.load("Sprites/Martian_Soil.png").convert()
         self.castle = pygame.image.load("Sprites/castle_4.png").convert_alpha()
@@ -59,15 +60,14 @@ class GameLevel(Level):
         for event in events:
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()  
+                sys.exit()   
                 
-         # Draw the background           
+        # Draw the background        
         self.screen.blit(self.background_image, (0, 0))
         
-         # Set up player data if not already done
+        # Set up player data if not already done
         if self.clientGameManager is not None and self.post_player_data_set == False:
             self.setPlayerData()
-        
         # Update player data based on the client's tank type
         player1 = next((obj for obj in self.players if obj.p1orp2 == "p1"), None)
         if player1 is not None and self.is_p1 == True:
@@ -78,12 +78,12 @@ class GameLevel(Level):
             self.updatePlayerData(player2)
     
 
-         # Sending data to the server           
+       # Sending data to the server       
         json_data = json.dumps(self.constructGameData(player1, player2), default=lambda o: o.__dict__ if hasattr(o, '__dict__') else str(o))
         self.clientGameManager.getNetworkManager().sendJSON(json_data)
         
         
-        # getting data # Receiving and updating data from the server
+        # Receiving and updating data from the server
         response = self.clientGameManager.getNetworkManager().receive()
         
         json_data_received = json.loads(response)
@@ -94,8 +94,6 @@ class GameLevel(Level):
         
         self.updateNetworkGameObjects(json_data_received)         
         self.drawUIElements()
-        
-        
         self.screen.blit(self.castle, self.castle_rect)
 
     def draw(self):
@@ -105,8 +103,8 @@ class GameLevel(Level):
         for networkBullet in self.networkBullets:
             networkBullet.updateState()
             networkBullet.drawTank(self.screen)
-    
-     # Handling player input (movement) based on tank type         
+            
+    # Handling player input (movement) based on tank type        
     def handlePlayerInput(self, ws_input, ad_input):
         if self.is_p1:
             # Update the position of the tank for player 1
@@ -142,6 +140,7 @@ class GameLevel(Level):
             rect_turret_height = json_data_received.get('player1', {}).get('rect_turret_height', 0)
             rect_turret_width = json_data_received.get('player1', {}).get('rect_turret_width', 0)
             angle_turret = json_data_received.get('player1', {}).get('angle_turret', 0)
+            
             
             
             self.p1_rect_base.x = rect_base_x
@@ -304,7 +303,6 @@ class GameLevel(Level):
 
     def updateNetWorkData(self, json_data_received):
          # Update network data if needed
-        
         if self.is_p1 == True:
             player2 = next((obj for obj in self.players if obj.p1orp2 == "p2"), None)
         if self.is_p2 == True:    
@@ -313,7 +311,6 @@ class GameLevel(Level):
                 
     def updatePlayerData(self, player):
         # Update player data based on input and draw the tank
-        
         keys = pygame.key.get_pressed()
         rotatingClockwise, rotatingAntiClockwise = False, False
         if keys[pygame.K_a]:

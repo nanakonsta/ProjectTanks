@@ -1,5 +1,4 @@
-#creates the lobby window image
-import pygamedisplay
+import pygame
 import sys
 from level import Level
 from player import Player
@@ -14,8 +13,8 @@ class LobbyLevel(Level):
         
         # Additional initialization for the derived class
         self.screen = pygame.display.set_mode((self.levelData["screen_width"], self.levelData["screen_height"]),pygame.RESIZABLE)        # Create the window
-        pygame.display.set_caption("Tanks!")
-        self.background_image = pygame.image.load(self.levelData["background_image"]).convert()
+        pygame.display.set_caption("Aeroplane assault")
+        self.background_image = pygame.image.load("Sprites/island.png").convert()
         
         
         # Load image

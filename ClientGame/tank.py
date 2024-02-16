@@ -8,7 +8,7 @@ class Tank(pygame.sprite.Sprite):
         self.x_pos = xPos
         self.y_pos = yPos
         self.tank_components = []
-
+        self.stoppedOnBorder = False
     def add_child(self, tank_component):
         self.tank_components.append(tank_component)
     def removeChild(self, reference):
@@ -59,6 +59,8 @@ class TankBase(Tank):
         self.base_net_rect_height = self.rect.height
         self.base_net_angle = self.angle
         self.bulletId = 0
+        
+        
         
     def updateNetworkData(self, angleBase, angleTurret , baseRect, turretRect):
         super().updateNetworkData(angleBase, angleTurret, baseRect, turretRect)
@@ -131,6 +133,9 @@ class TankBase(Tank):
             
         else:
             self.drawed_sprite = pygame.transform.rotate(self.sprite_surface, self.angle)
+            
+
+
             self.rect = self.drawed_sprite.get_rect(center=self.rect.center)
             
             self.base_net_rect_x = self.rect.x
@@ -194,8 +199,8 @@ class TankTurret(Tank):
                 angle_to_fire = self.angle
             bullet = Bullet(self.rect_turret.centerx, self.rect_turret.centery,angle_to_fire,"Sprites/tank_Shell.png", 8, self)
             self.tank_base.add_child(bullet)
-              #self.type sound (mia entolh gia na mpei hxow gia na varaei sfairas)
-                        
+            #self.type sound (mia entolh gia na mpei hxow gia na varaei sfairas)
+                       
     def updateState(self):
         if (self.tank_base.tankType == TankEnum.E1 or self.tank_base.tankType == TankEnum.E2) and self.tank_base.stop == True:
             self.fireCannon()
