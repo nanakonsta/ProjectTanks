@@ -13,8 +13,7 @@ class DatabaseHandler:
             self.create_table()
         return self.local.conn
 
-    def create_table(self):
-        #table twn players sth vash dedomenwn
+    def create_table(self): #table twn players sth vash dedomenwn
         # Create 'players' table if not exists
         cursor = self.get_connection().cursor()
         cursor.execute('''

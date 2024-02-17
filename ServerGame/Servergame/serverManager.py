@@ -13,19 +13,17 @@ from gameMode import GameMode
 
 class ServerManager:
 
-    #Initializations
+
     def __init__(self, server_game_runner):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
         self.server = '0.0.0.0'
         self.port = 8080
-        self.game_manager = GameManager() 
-        # diaxeirizetai states kai data tou paixnidio duskolia score paixtes klp
-        
+        self.game_manager = GameManager() # diaxeirizetai states kai data tou paixnidio duskolia score paixtes klp
         self.server_ip = socket.gethostbyname(self.server)
         self.game_runner = server_game_runner
-        self.p1_in_game= False
-        self.p2_in_game= False
+        self.p1_in_game = False
+        self.p2_in_game = False
 
         self.isInLobby = False
         try:
@@ -33,8 +31,8 @@ class ServerManager:
         except socket.error as e:
             print(str(e))
         self.s.listen()
-        self.database_handler = DatabaseHandler()
-        # diaxeirizetai erwthmata sthn vash 
+        self.database_handler = DatabaseHandler() # diaxeirizetai erwthmata sthn vash 
+        
         
     def get_public_ip(self):
         try:
@@ -43,9 +41,7 @@ class ServerManager:
         except requests.RequestException as e:
             return None
     
-    def threaded_client(self, conn):
-        # this is where we get the input from the players
-          
+    def threaded_client(self, conn): # this is where we get the input from the players
         try:
             while True:
                 data = conn.recv(2048)
@@ -62,7 +58,7 @@ class ServerManager:
             print("Connection Closed")
             conn.close()
         
-    (handles different types of data and takes corresponding actions)    
+        
     def receiveDataAndTakeAction(self, json_data):
         data_type = list(json_data.keys())[0]
         

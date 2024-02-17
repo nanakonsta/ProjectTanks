@@ -1,4 +1,3 @@
-#handles the data chosen in the lobby
 from mode import Mode
 from lobby import Lobby
 import pygame
