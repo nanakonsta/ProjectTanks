@@ -1,5 +1,4 @@
-#
-# 
+#ta panta zwgrafizei
 
 import pygame
 import sys
